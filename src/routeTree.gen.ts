@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CalculatorsIndexRouteImport } from './routes/calculators.index'
+import { Route as CalculatorsSlugRouteImport } from './routes/calculators.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,30 +23,39 @@ const CalculatorsIndexRoute = CalculatorsIndexRouteImport.update({
   path: '/calculators/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CalculatorsSlugRoute = CalculatorsSlugRouteImport.update({
+  id: '/calculators/$slug',
+  path: '/calculators/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
   '/calculators/': typeof CalculatorsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
   '/calculators': typeof CalculatorsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
   '/calculators/': typeof CalculatorsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/calculators/'
+  fullPaths: '/' | '/calculators/$slug' | '/calculators/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calculators'
-  id: '__root__' | '/' | '/calculators/'
+  to: '/' | '/calculators/$slug' | '/calculators'
+  id: '__root__' | '/' | '/calculators/$slug' | '/calculators/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CalculatorsSlugRoute: typeof CalculatorsSlugRoute
   CalculatorsIndexRoute: typeof CalculatorsIndexRoute
 }
 
@@ -65,11 +75,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalculatorsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/calculators/$slug': {
+      id: '/calculators/$slug'
+      path: '/calculators/$slug'
+      fullPath: '/calculators/$slug'
+      preLoaderRoute: typeof CalculatorsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CalculatorsSlugRoute: CalculatorsSlugRoute,
   CalculatorsIndexRoute: CalculatorsIndexRoute,
 }
 export const routeTree = rootRouteImport

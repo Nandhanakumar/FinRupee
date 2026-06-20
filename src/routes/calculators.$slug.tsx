@@ -72,7 +72,7 @@ function Page() {
         <div>
           <h2 className="text-xl font-bold tracking-tight text-foreground">Frequently asked questions</h2>
           <div className="mt-4 divide-y divide-border rounded-2xl border border-border bg-card">
-            {calc.faqs.map((f) => (
+            {calc.faqs.map((f: { q: string; a: string }) => (
               <details key={f.q} className="group p-5">
                 <summary className="cursor-pointer list-none text-sm font-semibold text-foreground sm:text-base">
                   {f.q}
