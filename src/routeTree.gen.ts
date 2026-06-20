@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as QaIndexRouteImport } from './routes/qa.index'
 import { Route as CalculatorsIndexRouteImport } from './routes/calculators.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as QaSlugRouteImport } from './routes/qa.$slug'
 import { Route as CalculatorsSlugRouteImport } from './routes/calculators.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -36,6 +37,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QaSlugRoute = QaSlugRouteImport.update({
+  id: '/qa/$slug',
+  path: '/qa/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalculatorsSlugRoute = CalculatorsSlugRouteImport.update({
   id: '/calculators/$slug',
   path: '/calculators/$slug',
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/qa/$slug': typeof QaSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/calculators/': typeof CalculatorsIndexRoute
   '/qa/': typeof QaIndexRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/qa/$slug': typeof QaSlugRoute
   '/blog': typeof BlogIndexRoute
   '/calculators': typeof CalculatorsIndexRoute
   '/qa': typeof QaIndexRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/qa/$slug': typeof QaSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/calculators/': typeof CalculatorsIndexRoute
   '/qa/': typeof QaIndexRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog/$slug'
     | '/calculators/$slug'
+    | '/qa/$slug'
     | '/blog/'
     | '/calculators/'
     | '/qa/'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog/$slug'
     | '/calculators/$slug'
+    | '/qa/$slug'
     | '/blog'
     | '/calculators'
     | '/qa'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog/$slug'
     | '/calculators/$slug'
+    | '/qa/$slug'
     | '/blog/'
     | '/calculators/'
     | '/qa/'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CalculatorsSlugRoute: typeof CalculatorsSlugRoute
+  QaSlugRoute: typeof QaSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   CalculatorsIndexRoute: typeof CalculatorsIndexRoute
   QaIndexRoute: typeof QaIndexRoute
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/qa/$slug': {
+      id: '/qa/$slug'
+      path: '/qa/$slug'
+      fullPath: '/qa/$slug'
+      preLoaderRoute: typeof QaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calculators/$slug': {
       id: '/calculators/$slug'
       path: '/calculators/$slug'
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogSlugRoute: BlogSlugRoute,
   CalculatorsSlugRoute: CalculatorsSlugRoute,
+  QaSlugRoute: QaSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   CalculatorsIndexRoute: CalculatorsIndexRoute,
   QaIndexRoute: QaIndexRoute,
