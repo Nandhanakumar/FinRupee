@@ -11,7 +11,7 @@ export const Route = createFileRoute("/calculators/$slug")({
   },
   head: ({ params, loaderData }) => {
     const c = loaderData?.calc;
-    const title = c ? `${c.name} — Free Online ${c.name} | FinGrove` : "Calculator | FinGrove";
+    const title = c ? `${c.name} — Free Online ${c.name} | FinRupee` : "Calculator | FinRupee";
     const desc = c ? `${c.description} Free, instant ${c.name.toLowerCase()} for Indian investors.` : "";
     return {
       meta: [
