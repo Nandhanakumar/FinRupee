@@ -9,38 +9,160 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as QaIndexRouteImport } from './routes/qa.index'
+import { Route as CalculatorsIndexRouteImport } from './routes/calculators.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as QaSlugRouteImport } from './routes/qa.$slug'
+import { Route as CalculatorsSlugRouteImport } from './routes/calculators.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QaIndexRoute = QaIndexRouteImport.update({
+  id: '/qa/',
+  path: '/qa/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorsIndexRoute = CalculatorsIndexRouteImport.update({
+  id: '/calculators/',
+  path: '/calculators/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QaSlugRoute = QaSlugRouteImport.update({
+  id: '/qa/$slug',
+  path: '/qa/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalculatorsSlugRoute = CalculatorsSlugRouteImport.update({
+  id: '/calculators/$slug',
+  path: '/calculators/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/qa/$slug': typeof QaSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/calculators/': typeof CalculatorsIndexRoute
+  '/qa/': typeof QaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/qa/$slug': typeof QaSlugRoute
+  '/blog': typeof BlogIndexRoute
+  '/calculators': typeof CalculatorsIndexRoute
+  '/qa': typeof QaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/qa/$slug': typeof QaSlugRoute
+  '/blog/': typeof BlogIndexRoute
+  '/calculators/': typeof CalculatorsIndexRoute
+  '/qa/': typeof QaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/calculators/$slug'
+    | '/qa/$slug'
+    | '/blog/'
+    | '/calculators/'
+    | '/qa/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/calculators/$slug'
+    | '/qa/$slug'
+    | '/blog'
+    | '/calculators'
+    | '/qa'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/sitemap.xml'
+    | '/blog/$slug'
+    | '/calculators/$slug'
+    | '/qa/$slug'
+    | '/blog/'
+    | '/calculators/'
+    | '/qa/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  CalculatorsSlugRoute: typeof CalculatorsSlugRoute
+  QaSlugRoute: typeof QaSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  CalculatorsIndexRoute: typeof CalculatorsIndexRoute
+  QaIndexRoute: typeof QaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +170,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/qa/': {
+      id: '/qa/'
+      path: '/qa'
+      fullPath: '/qa/'
+      preLoaderRoute: typeof QaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculators/': {
+      id: '/calculators/'
+      path: '/calculators'
+      fullPath: '/calculators/'
+      preLoaderRoute: typeof CalculatorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qa/$slug': {
+      id: '/qa/$slug'
+      path: '/qa/$slug'
+      fullPath: '/qa/$slug'
+      preLoaderRoute: typeof QaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calculators/$slug': {
+      id: '/calculators/$slug'
+      path: '/calculators/$slug'
+      fullPath: '/calculators/$slug'
+      preLoaderRoute: typeof CalculatorsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  CalculatorsSlugRoute: CalculatorsSlugRoute,
+  QaSlugRoute: QaSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  CalculatorsIndexRoute: CalculatorsIndexRoute,
+  QaIndexRoute: QaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
