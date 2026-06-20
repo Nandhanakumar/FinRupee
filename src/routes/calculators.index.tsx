@@ -5,9 +5,9 @@ import { calculators } from "../lib/calculators";
 export const Route = createFileRoute("/calculators/")({
   head: () => ({
     meta: [
-      { title: "Financial Calculators — SIP, EMI, FD, PPF, Tax & More | FinGrove" },
+      { title: "Financial Calculators — SIP, EMI, FD, PPF, Tax & More | FinRupee" },
       { name: "description", content: "Browse 14+ free financial calculators: SIP, lumpsum, EMI, FD, RD, PPF, NPS, income tax, HRA, GST and more. Built for Indian investors." },
-      { property: "og:title", content: "All Financial Calculators | FinGrove" },
+      { property: "og:title", content: "All Financial Calculators | FinRupee" },
       { property: "og:description", content: "Free SIP, EMI, FD, PPF, tax and more — instant results." },
       { property: "og:url", content: "/calculators" },
     ],

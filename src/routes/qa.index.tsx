@@ -4,9 +4,9 @@ import { qas } from "../lib/qa-data";
 export const Route = createFileRoute("/qa/")({
   head: () => ({
     meta: [
-      { title: "Money Q&A — Personal Finance Questions Answered | FinGrove" },
+      { title: "Money Q&A — Personal Finance Questions Answered | FinRupee" },
       { name: "description", content: "Clear, expert-style answers to the most common money questions Indians ask — SIPs, FDs, taxes, home loans, insurance and more." },
-      { property: "og:title", content: "FinGrove Money Q&A" },
+      { property: "og:title", content: "FinRupee Money Q&A" },
       { property: "og:description", content: "Real questions, clear answers about personal finance in India." },
       { property: "og:url", content: "/qa" },
     ],

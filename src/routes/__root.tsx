@@ -79,11 +79,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FinGrove — Financial Calculators, Investing Guides & Money Q&A" },
+      { title: "FinRupee — Financial Calculators, Investing Guides & Money Q&A" },
       { name: "description", content: "Free SIP, EMI, FD and 11+ other financial calculators with investing blogs, tax guides, and expert money Q&A for Indian investors." },
-      { name: "author", content: "FinGrove" },
+      { name: "author", content: "FinRupee" },
       { name: "theme-color", content: "#1f9d55" },
-      { property: "og:site_name", content: "FinGrove" },
+      { property: "og:site_name", content: "FinRupee" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -112,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "FinGrove",
+          name: "FinRupee",
           description: "Financial calculators, investing guides and money Q&A for Indian investors.",
         }),
       },

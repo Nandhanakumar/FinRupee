@@ -7,14 +7,14 @@ import { qas } from "../lib/qa-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FinGrove — Free Financial Calculators, Investing Blog & Money Q&A" },
+      { title: "FinRupee — Free Financial Calculators, Investing Blog & Money Q&A" },
       {
         name: "description",
         content:
           "Free SIP, EMI, FD, PPF, NPS, income tax & 11 more calculators. Read investing guides and get expert answers to money questions — built for Indian investors.",
       },
       { name: "keywords", content: "SIP calculator, EMI calculator, FD calculator, PPF, NPS, income tax calculator, mutual funds India, personal finance" },
-      { property: "og:title", content: "FinGrove — Calculators, Blog & Q&A for Indian Investors" },
+      { property: "og:title", content: "FinRupee — Calculators, Blog & Q&A for Indian Investors" },
       { property: "og:description", content: "14+ free financial calculators with finance blog and money Q&A." },
       { property: "og:url", content: "/" },
     ],
@@ -38,7 +38,7 @@ function Index() {
               Smarter money decisions, <span className="text-primary">in seconds.</span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-              FinGrove gives you free SIP, EMI, FD, tax and retirement calculators alongside
+              FinRupee gives you free SIP, EMI, FD, tax and retirement calculators alongside
               honest investing guides and answers to the money questions Indians actually ask.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">

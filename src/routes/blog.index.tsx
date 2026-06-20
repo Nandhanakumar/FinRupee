@@ -4,9 +4,9 @@ import { blogPosts } from "../lib/blog-data";
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Finance Blog — Investing, Tax & Personal Finance Guides | FinGrove" },
+      { title: "Finance Blog — Investing, Tax & Personal Finance Guides | FinRupee" },
       { name: "description", content: "Practical, jargon-free articles on mutual funds, tax planning, home loans, PPF, credit scores and personal finance for Indian investors." },
-      { property: "og:title", content: "FinGrove Finance Blog" },
+      { property: "og:title", content: "FinRupee Finance Blog" },
       { property: "og:description", content: "Honest investing and personal finance guides." },
       { property: "og:url", content: "/blog" },
     ],

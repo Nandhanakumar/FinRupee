@@ -10,7 +10,7 @@ export const Route = createFileRoute("/qa/$slug")({
   },
   head: ({ params, loaderData }) => {
     const q = loaderData?.qa;
-    const title = q ? `${q.question} | FinGrove Q&A` : "Q&A | FinGrove";
+    const title = q ? `${q.question} | FinRupee Q&A` : "Q&A | FinRupee";
     const desc = q ? q.answer[0] : "";
     return {
       meta: [

@@ -50,7 +50,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       "The New Tax Regime offers lower slab rates but strips away most deductions (80C, 80D, HRA, LTA, home-loan interest on self-occupied property). The Old Regime keeps the deductions but charges higher slab rates.",
       "Rough breakeven: if your total deductions exceed roughly ₹3.75 lakh, the Old Regime is usually better. Below that, the New Regime tends to win.",
-      "Use FinGrove's Income Tax Calculator to compare both scenarios with your real numbers before opting in. Salaried employees can switch regimes every financial year; business income earners cannot.",
+      "Use FinRupee's Income Tax Calculator to compare both scenarios with your real numbers before opting in. Salaried employees can switch regimes every financial year; business income earners cannot.",
     ],
   },
   {

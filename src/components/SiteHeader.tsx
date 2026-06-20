@@ -22,7 +22,7 @@ export function SiteHeader() {
           >
             <Calculator className="h-5 w-5" />
           </span>
-          <span className="text-lg font-bold tracking-tight text-foreground">FinGrove</span>
+          <span className="text-lg font-bold tracking-tight text-foreground">FinRupee</span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
