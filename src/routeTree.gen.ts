@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CalculatorsIndexRouteImport } from './routes/calculators.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as CalculatorsSlugRouteImport } from './routes/calculators.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const CalculatorsIndexRoute = CalculatorsIndexRouteImport.update({
   path: '/calculators/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CalculatorsSlugRoute = CalculatorsSlugRouteImport.update({
   id: '/calculators/$slug',
   path: '/calculators/$slug',
@@ -32,30 +38,34 @@ const CalculatorsSlugRoute = CalculatorsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/calculators/': typeof CalculatorsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/calculators': typeof CalculatorsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/calculators/$slug': typeof CalculatorsSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/calculators/': typeof CalculatorsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/calculators/$slug' | '/calculators/'
+  fullPaths: '/' | '/calculators/$slug' | '/blog/' | '/calculators/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calculators/$slug' | '/calculators'
-  id: '__root__' | '/' | '/calculators/$slug' | '/calculators/'
+  to: '/' | '/calculators/$slug' | '/blog' | '/calculators'
+  id: '__root__' | '/' | '/calculators/$slug' | '/blog/' | '/calculators/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CalculatorsSlugRoute: typeof CalculatorsSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   CalculatorsIndexRoute: typeof CalculatorsIndexRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalculatorsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/calculators/$slug': {
       id: '/calculators/$slug'
       path: '/calculators/$slug'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CalculatorsSlugRoute: CalculatorsSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   CalculatorsIndexRoute: CalculatorsIndexRoute,
 }
 export const routeTree = rootRouteImport
